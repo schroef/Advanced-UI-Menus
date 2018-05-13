@@ -20,15 +20,15 @@
 """ Copyright 2011 GPL licence applies"""
 
 bl_info = {
-    "name": "Advanced UI Menus Stable Version",
-    "description": "Menus for advanced interaction with blender's UI",
-    "author": "Ryan Inch",
-    "version": (1, "5b"),
-    "blender": (2, 79),
-    "location": "View3D - Multiple menus in multiple modes.",
-    "warning": '',  # used for warning icon and text in addons panel
-    "wiki_url": "http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/3D_interaction/Advanced_UI_Menus_Full",
-    "category": "User Interface"}
+	"name": "Advanced UI Menus Stable Version",
+	"description": "Menus for advanced interaction with blender's UI",
+	"author": "Ryan Inch",
+	"version": (1, "5b"),
+	"blender": (2, 79),
+	"location": "View3D - Multiple menus in multiple modes.",
+	"warning": '',  # used for warning icon and text in addons panel
+	"wiki_url": "http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/3D_interaction/Advanced_UI_Menus_Full",
+	"category": "User Interface"}
 
 import sys, os
 
@@ -53,46 +53,47 @@ from . import stroke_menu
 from . import symmetry_menu
 from . import texture_menu
 from . import view_menu
+from . import preferences
 
-addon_files = [ 
-               brush_menu,
-               curve_menu,
-               custom_menu,
-               delete_menu,
-               dyntopo_menu,
-               extrude_menu,
-               layers_window,
-               manipulator_menu,
-               mode_menu,
-               pivot_menu,
-               proportional_menu,
-               selection_menu,
-               shade_menu,
-               snap_menu,
-               stroke_menu,
-               symmetry_menu,
-               texture_menu,
-               view_menu
-              ]
+addon_files = [
+			   brush_menu,
+			   curve_menu,
+			   custom_menu,
+			   delete_menu,
+			   dyntopo_menu,
+			   extrude_menu,
+			   layers_window,
+			   manipulator_menu,
+			   mode_menu,
+			   pivot_menu,
+			   proportional_menu,
+			   selection_menu,
+			   shade_menu,
+			   snap_menu,
+			   stroke_menu,
+			   symmetry_menu,
+			   texture_menu,
+			   view_menu
+			  ]
 
 def register():
-    # register all blender classes
-    bpy.utils.register_module(__name__)
-    
-    # register all files
-    for addon_file in addon_files:
-        addon_file.register()
- 
+	# register all blender classes
+	bpy.utils.register_module(__name__)
+
+	# register all files
+	for addon_file in addon_files:
+		addon_file.register()
+
 def unregister():
-    # unregister all files
-    for addon_file in addon_files:
-        addon_file.unregister()
-    
-    # delete all the properties you have created
-    del_props()
-    
-    # unregister all blender classes
-    bpy.utils.unregister_module(__name__)
-    
+	# unregister all files
+	for addon_file in addon_files:
+		addon_file.unregister()
+
+	# delete all the properties you have created
+	del_props()
+
+	# unregister all blender classes
+	bpy.utils.unregister_module(__name__)
+
 if __name__ == "__main__":
-    register()
+	register()
